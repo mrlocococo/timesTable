@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> timesTableContent = new ArrayList<String>();
 
+
+        // Change #(10) to how far you wish the table to go
         for (int j = 1; j <= 10; j++) {
 
             timesTableContent.add(Integer.toString(j * timesTableNumber));
@@ -38,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         timesTableListView = findViewById(R.id.timesTableListView);
 
-        timesSeekBar.setMax(20);
-        timesSeekBar.setProgress(10);
+        int max = 20;
+        int startingPosition = 10;
+
+        timesSeekBar.setMax(max);
+        timesSeekBar.setProgress(startingPosition);
+
+        generateTimesTable(startingPosition);
 
         timesSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
